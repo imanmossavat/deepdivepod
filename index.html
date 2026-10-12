@@ -5,30 +5,48 @@ css: index-styles.css
 ---
 
 <section class="hero">
-  <div class="hero-text">
-    <p class="hero-welcome">Welcome to</p>
-    <h1 class="hero-title">Deep Dives with Iman</h1>
-    <p class="hero-subtitle">
-      Exploring the science, tech and societal impact of
-      artificial intelligence with accessible expert insights.
-    </p>
+  <div class="hero-content">
+    <div class="hero-text">
+      <p class="hero-welcome">Welcome to</p>
+      <h1 class="hero-title">Deep Dives with Iman</h1>
+      <p class="hero-subtitle">
+        Exploring the science, tech and societal impact of
+        artificial intelligence with accessible expert insights.
+      </p>
+    </div>
+
+    <div class="hero-portrait">
+      <img src="{{ '/assets/images/portrait.jpg' | relative_url }}" alt="Iman Mossavat">
+    </div>
   </div>
 
   <div class="scroll-section">
-    <img src="./assets/images/arrow-down-solid-full.svg" alt="Scroll down arrow" class="scroll-arrow">
+    <img src="{{ '/assets/images/arrow-down-solid-full.svg' | relative_url }}" alt="Scroll down arrow" class="scroll-arrow">
     <p class="scroll-down">scroll down</p>
   </div>
 </section>
 
-<section class="latest-episode">
+<section class="favorites">
   <div class="episode-heading">
-    <p class="line1">Dive Into The</p>
-    <p class="line2">Latest Episode</p>
+    <p class="line2">Highlights</p>
   </div>
 
-  {% assign latest = site.episodes | sort: "episode_number" | last %}
-  <div class="episode-embed">
-    <iframe src="{{ latest.spotify }}" width="100%" height="152" frameborder="0" allow="encrypted-media"></iframe>
+  <div class="episodes-list favorites-list">
+    {% assign fav_nums = "14,15,18,23,26" | split: "," %}
+    {% for num_str in fav_nums %}
+      {% assign num = num_str | plus: 0 %}
+      {% for episode in site.episodes %}
+        {% if episode.episode_number == num %}
+          <article class="episode-card favorite-card">
+            <a href="{{ episode.url }}">
+              <img src="{{ episode.cover }}" alt="{{ episode.title }}" class="episode-cover">
+              <h3>Episode {{ episode.episode_number }}</h3>
+              <h2>{{ episode.title }}</h2>
+            </a>
+          </article>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
   </div>
 </section>
 
