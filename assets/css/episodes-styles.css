@@ -118,6 +118,41 @@ body {
     color: #605E5E;
 }
 
+.tag-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.65);
+    margin: 15px 0 6px 0;
+    text-align: center;
+}
+
+.tag-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.tag-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: rgba(255, 255, 255, 0.85);
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.tag-btn:hover {
+    border-color: rgba(255, 255, 255, 0.85);
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.08);
+}
+
 #no-results-message {
     display: none; 
     text-align:center; 
@@ -169,6 +204,21 @@ body {
         font-size: 12px;
         height: 85%;
         margin-bottom: -15px;
+    }
+
+    .tag-label {
+        font-size: 10px;
+        margin: 12px 0 5px 0;
+    }
+
+    .tag-filters {
+        gap: 6px;
+        margin-bottom: 8px;
+    }
+
+    .tag-btn {
+        padding: 2px 8px;
+        font-size: 11px;
     }
 
     .search-heading .line1 {

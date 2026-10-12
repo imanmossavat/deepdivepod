@@ -16,6 +16,14 @@ permalink: /episodes/
         id="search-bar" 
         placeholder="Search for a title, tag or an expert name..."
     >
+
+    <p class="tag-label">Suggested tags</p>
+    <div class="tag-filters">
+        <button class="tag-btn" data-tag="society">society</button>
+        <button class="tag-btn" data-tag="technology">technology</button>
+        <button class="tag-btn" data-tag="science">science</button>
+        <button class="tag-btn" data-tag="mathematics">mathematics</button>
+    </div>
 </section>
 
 <div class="episodes-list" id="episodes-list">
@@ -101,5 +109,14 @@ document.addEventListener("DOMContentLoaded", function () {
     searchBar.value = tagParam;
     filterEpisodes(tagParam.toLowerCase().trim());
   }
+
+  document.querySelectorAll(".tag-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const tag = btn.dataset.tag.toLowerCase().trim();
+      searchBar.value = tag;
+      filterEpisodes(tag);
+      window.scrollTo({ top: document.getElementById("episodes-list").offsetTop - 120, behavior: "smooth" });
+    });
+  });
 });
 </script>
