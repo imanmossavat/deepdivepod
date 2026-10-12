@@ -1,3 +1,7 @@
 test.html
 template.html
 build_episode.py
+episodes_to_add.md
+add_episodes.py
+.DS_Store
+__pycache__/add_episodes.cpython-313.pyc
