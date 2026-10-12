@@ -1,0 +1,164 @@
+.hero {
+    background: linear-gradient(#011623, #55757B);
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px 0px 0px 0px;
+    box-sizing: border-box;
+}
+
+.hero-text {
+    max-width: 520px;
+    padding-top: 180px;
+    text-align: left;
+    margin-left: -300px;
+}
+
+.hero-welcome {
+    font-size: 30px;
+    color: #cccccc;
+    font-weight: 300;
+}
+
+.hero-title {
+    font-size: 49px;
+    font-weight: bold;
+    margin: -30px 0px -15px 0px;
+    text-shadow: 2px 2px 4px #0000003a;
+}
+
+.hero-subtitle {
+    font-size: 21px;
+    color: #cccccc;
+    line-height: 1.35;
+    font-weight: 300;
+}
+
+.scroll-section {
+    position: absolute;
+    bottom: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.scroll-arrow {
+    width: 25px;
+    height: auto;
+    margin-bottom: 3px;
+}
+
+.scroll-down {
+    font-size: 13px;
+    color: #cccccc;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.latest-episode {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 0px 45px 0px;
+    background-color: #0F2632;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.episode-heading .line1 {
+    font-size: 25px;
+    text-align: center;
+    color: #cccccc;
+    font-weight: 300;
+    margin-bottom: -40px;
+}
+
+.episode-heading .line2 {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.episode-embed {
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-radius: 12px;
+}
+
+.radio-section {
+    background-color: #4E6D73;
+    padding: 30px 0px 20px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 300; 
+    font-size: 20px;
+}
+
+.radio-section img {
+    width: 140px;
+    height: 140px;
+    box-shadow: 0px 4px 8px #00000025;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0px 20px 40px 0px;
+    }
+
+    .hero-text {
+        margin-left: 0;
+        padding-top: 100px;
+        max-width: 90%;
+    }
+
+    .hero-welcome {
+        font-size: 22px;
+    }
+
+    .hero-title {
+        font-size: 30px;
+        padding: 10px 0px 10px 0px
+    }
+
+    .hero-subtitle {
+        font-size: 15px;
+    }
+
+    .episode-heading .line1 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .episode-heading .line2 {
+        font-size: 35px;
+    }
+
+    .episode-embed {
+        width: 95%;
+    }
+
+    .radio-section {
+        font-size: 16px;
+        padding: 30px;
+        text-align: center;
+    }
+
+    .scroll-section {
+        bottom: 130px;
+    }
+}

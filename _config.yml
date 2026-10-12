@@ -2,3 +2,28 @@ title: Deep Dive Podcast
 description: Notes and Blogs
 baseurl: "" # Root of your site
 url: "https://deepdivepod.eu"
+
+theme: minima
+plugins:
+  - jekyll-feed
+
+collections:
+  episodes:
+    output: true
+    permalink: /episodes/:name/
+
+exclude:
+  - .bundle/
+  - .DS_Store
+  - .gitignore
+  - README.md
+  - add_episodes.py
+  - build_episode.py
+  - episodes_to_add.md
+  - Gemfile
+  - Gemfile.lock
+  - ivet/
+  - node_modules/
+  - template.html
+  - test.html
+  - vendor/

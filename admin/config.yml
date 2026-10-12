@@ -1,0 +1,37 @@
+backend:
+  name: github
+  branch: main
+  repo: imanmossavat/deepdivepod
+
+media_folder: "assets/episodes"
+public_folder: "/assets/episodes"
+
+collections:
+  - name: "episodes"
+    label: "Episodes"
+    folder: "_episodes"
+    create: true
+    slug: "{{fields.episode_number}}"
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "episode" }
+      - { label: "CSS", name: "css", widget: "hidden", default: "each-episode-styles.css" }
+      - { label: "Episode Number", name: "episode_number", widget: "number", min: 1, step: 1 }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Cover Image", name: "cover", widget: "image" }
+      - { label: "Spotify Embed Link", name: "spotify", widget: "string", hint: "Paste the Spotify embed track URL (no ifrmae)" }
+      - { label: "YouTube Link", name: "youtube", widget: "string", required: false, hint: "Paste the YouTube embed video URL (no ifrmae)" }
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        field: 
+          { label: "Tag", name: "tag", widget: "string" }
+      - label: "External Links"
+        name: "links"
+        widget: "list"
+        fields:
+          - { label: "Label", name: "label", widget: "string", hint: "e.g., Linkedin, etc" }
+          - { label: "URL", name: "url", widget: "string" }
+
+    episodes:
+      output: true

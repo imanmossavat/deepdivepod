@@ -1,0 +1,104 @@
+---
+layout: default
+title: Episodes
+css: episodes-styles.css
+---
+
+<section class="search-section">
+    <div class="search-heading">
+        <p class="line1">Dive Into The</p>
+        <p class="line2">Previous Episodes</p>
+    </div>
+
+    <input 
+        type="text" 
+        id="search-bar" 
+        placeholder="Search for a title, tag or an expert name..."
+    >
+</section>
+
+<div class="episodes-list" id="episodes-list">
+    {% assign sorted_episodes = site.episodes | sort: "episode_number" | reverse %}
+    {% for episode in sorted_episodes %}
+        <article class="episode-card" data-title="{{ episode.title | downcase }}" data-tags="{{ episode.tags | join: ' ' | downcase }}">
+            <a href="{{ episode.url }}">
+                <img src="{{ episode.cover }}" alt="{{ episode.title }}" class="episode-cover">
+                <h3>Episode {{ episode.episode_number }}</h3>
+                <h2>{{ episode.title }}</h2>
+            </a>
+        </article>
+    {% endfor %}
+</div>
+
+<p id="no-results-message">
+  Oops! You’ve dived too deep!<br>The episode you’re looking for doesn’t exist yet.
+</p>
+
+<div class="load-more-container">
+  <button id="load-more-btn">DIVE DEEPER</button>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const episodes = document.querySelectorAll(".episode-card");
+  const loadMoreBtn = document.getElementById("load-more-btn");
+  const searchBar = document.getElementById("search-bar");
+  const noResultsMessage = document.getElementById("no-results-message");
+
+  let visibleCount = 6;
+
+  function showInitialEpisodes() {
+    episodes.forEach((ep, index) => {
+      ep.style.display = index < visibleCount ? "block" : "none";
+    });
+    noResultsMessage.style.display = "none";
+    if (visibleCount >= episodes.length) {
+      loadMoreBtn.style.display = "none";
+    } else {
+      loadMoreBtn.style.display = "inline-block";
+    }
+  }
+
+  function filterEpisodes(query) {
+    let matchCount = 0;
+    episodes.forEach(ep => {
+      const title = ep.dataset.title;
+      const tags = ep.dataset.tags;
+
+      if (title.includes(query) || tags.includes(query)) {
+        ep.style.display = "block";
+        matchCount++;
+      } else {
+        ep.style.display = "none";
+      }
+    });
+
+    if (query.length > 0) {
+      loadMoreBtn.style.display = "none";
+      noResultsMessage.style.display = matchCount === 0 ? "block" : "none";
+    } else {
+      noResultsMessage.style.display = "none";
+      visibleCount = 6;
+      showInitialEpisodes();
+    }
+  }
+
+  showInitialEpisodes();
+
+  loadMoreBtn.addEventListener("click", () => {
+    visibleCount += 6;
+    showInitialEpisodes();
+  });
+
+  searchBar.addEventListener("input", function () {
+    filterEpisodes(this.value.toLowerCase().trim());
+  });
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const tagParam = urlParams.get("tag");
+  if (tagParam) {
+    searchBar.value = tagParam;
+    filterEpisodes(tagParam.toLowerCase().trim());
+  }
+});
+</script>

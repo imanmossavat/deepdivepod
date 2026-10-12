@@ -1,7 +1,23 @@
+# Local development / temp files
 test.html
 template.html
 build_episode.py
 episodes_to_add.md
 add_episodes.py
 .DS_Store
-__pycache__/add_episodes.cpython-313.pyc
+__pycache__/
+ivet/*
+
+# Jekyll build output
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Ruby / Bundler
+vendor/
+.bundle/
+Gemfile.lock
+
+# Node
+node_modules/

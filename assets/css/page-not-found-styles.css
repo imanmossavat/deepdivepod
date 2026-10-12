@@ -1,0 +1,26 @@
+body {
+    background: linear-gradient(#011623, #55757B);
+    background-attachment: fixed;
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.error-container h1 {
+  font-size: 50px;
+  margin: 20px 0px 0px 0px;
+  color: #ffffff;
+}
+
+.error-container p {
+  font-size: 25px;
+  margin: 10px 0px;
+  color: #ffffff;
+  font-weight: 300;
+}
