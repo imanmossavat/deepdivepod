@@ -4,8 +4,10 @@ title: {{ page.title }}
 css: each-episode-styles.css
 ---
 
+{% assign spotify_embed = page.spotify | split: '?' | first | replace: '/embed/episode/', '/episode/' | replace: 'open.spotify.com/episode/', 'open.spotify.com/embed/episode/' %}
 <article>
   <h1>Episode {{ page.episode_number }}: {{ page.title }}</h1>
+  {% if page.season and page.season > 1 %}<p class="season-label">Season {{ page.season }}</p>{% endif %}
 
   {% if page.tags %}
     <div class="tags">
@@ -20,7 +22,7 @@ css: each-episode-styles.css
     </div>
   {% endif %}
 
-  <iframe src="{{ page.spotify }}" width="100%" height="152" frameborder="0" allow="encrypted-media"></iframe>
+  <iframe src="{{ spotify_embed }}" width="100%" height="152" frameborder="0" allow="encrypted-media"></iframe>
   <p>{{ page.description }}</p>
 
   {% if page.youtube %}

@@ -17,6 +17,7 @@ exclude:
   - .DS_Store
   - .gitignore
   - README.md
+  - PUBLISHING.md
   - add_episodes.py
   - build_episode.py
   - episodes_to_add.md

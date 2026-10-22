@@ -15,11 +15,12 @@ collections:
     fields:
       - { label: "Layout", name: "layout", widget: "hidden", default: "episode" }
       - { label: "CSS", name: "css", widget: "hidden", default: "each-episode-styles.css" }
-      - { label: "Episode Number", name: "episode_number", widget: "number", min: 1, step: 1 }
+      - { label: "Episode Number", name: "episode_number", widget: "number", min: 1, step: 1, hint: "Keep counting (next one after 31 is 32). Used for the file name and sorting." }
+      - { label: "Season", name: "season", widget: "number", min: 1, step: 1, default: 2, hint: "Season 1 = published by Radio 4 Brainport. Season 2 = self-published (from episode 32)." }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Cover Image", name: "cover", widget: "image" }
-      - { label: "Spotify Embed Link", name: "spotify", widget: "string", hint: "Paste the Spotify embed track URL (no ifrmae)" }
+      - { label: "Spotify Link", name: "spotify", widget: "string", hint: "Paste the normal Spotify share link, e.g. https://open.spotify.com/episode/2eFjHhKXc52elOUTkoNFnY (it is converted to an embed automatically)" }
       - { label: "YouTube Link", name: "youtube", widget: "string", required: false, hint: "Paste the YouTube embed video URL (no ifrmae)" }
       - label: "Tags"
         name: "tags"

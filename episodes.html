@@ -32,7 +32,7 @@ permalink: /episodes/
         <article class="episode-card" data-title="{{ episode.title | downcase }}" data-tags="{{ episode.tags | join: ' ' | downcase }}">
             <a href="{{ episode.url }}">
                 <img src="{{ episode.cover }}" alt="{{ episode.title }}" class="episode-cover">
-                <h3>Episode {{ episode.episode_number }}</h3>
+                <h3>Episode {{ episode.episode_number }}{% if episode.season and episode.season > 1 %} · Season {{ episode.season }}{% endif %}</h3>
                 <h2>{{ episode.title }}</h2>
             </a>
         </article>
