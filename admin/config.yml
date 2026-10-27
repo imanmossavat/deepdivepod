@@ -15,7 +15,8 @@ collections:
     fields:
       - { label: "Layout", name: "layout", widget: "hidden", default: "episode" }
       - { label: "CSS", name: "css", widget: "hidden", default: "each-episode-styles.css" }
-      - { label: "Episode Number", name: "episode_number", widget: "number", min: 1, step: 1, hint: "Keep counting (next one after 31 is 32). Used for the file name and sorting." }
+      - { label: "Episode Number", name: "episode_number", widget: "number", min: 1, step: 1, hint: "Keep counting (next one after 31 is 32). Used for the file name; sorting uses the release date." }
+      - { label: "Release Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD", hint: "The Spotify release date (not the day you add it here). Used for sorting and the 'Latest episode' block." }
       - { label: "Season", name: "season", widget: "number", min: 1, step: 1, default: 2, hint: "Season 1 = published by Radio 4 Brainport. Season 2 = self-published (from episode 32)." }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "text" }

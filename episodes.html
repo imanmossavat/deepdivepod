@@ -27,7 +27,7 @@ permalink: /episodes/
 </section>
 
 <div class="episodes-list" id="episodes-list">
-    {% assign sorted_episodes = site.episodes | sort: "episode_number" | reverse %}
+    {% assign sorted_episodes = site.episodes | sort: "date" | reverse %}
     {% for episode in sorted_episodes %}
         <article class="episode-card" data-title="{{ episode.title | downcase }}" data-tags="{{ episode.tags | join: ' ' | downcase }}">
             <a href="{{ episode.url }}">
