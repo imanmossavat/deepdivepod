@@ -110,16 +110,6 @@ body {
     }
 }
 
-.intro-box .questions {
-    text-align: left;
-    font-size: 17px;
-    line-height: 1.5;
-    padding-left: 20px;
-}
-
-.intro-box .questions li {
-    margin-bottom: 8px;
-}
 
 .radio-section {
     text-align: center;
@@ -130,10 +120,6 @@ body {
 }
 
 @media (max-width: 768px) {
-    .intro-box .questions {
-        font-size: 15px;
-    }
-
     .radio-section {
         font-size: 13px;
     }
