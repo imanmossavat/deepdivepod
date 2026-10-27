@@ -6,7 +6,7 @@ css: each-episode-styles.css
 {% assign spotify_embed = page.spotify | split: '?' | first | replace: '/embed/episode/', '/episode/' | replace: 'open.spotify.com/episode/', 'open.spotify.com/embed/episode/' %}
 <article>
   <h1>Episode {{ page.episode_number }}: {{ page.title }}</h1>
-  {% if page.season and page.season > 1 %}<p class="season-label">Season {{ page.season }}</p>{% endif %}
+  <p class="episode-meta">{% if page.date %}<time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%-d %B %Y" }}</time>{% endif %}{% if page.season and page.season > 1 %}{% if page.date %} · {% endif %}Season {{ page.season }}{% endif %}</p>
 
   {% if page.tags %}
     <div class="tags">
