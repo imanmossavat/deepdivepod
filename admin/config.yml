@@ -18,11 +18,11 @@ collections:
       - { label: "Episode Number", name: "episode_number", widget: "number", min: 1, step: 1, hint: "Keep counting (next one after 31 is 32). Used for the file name; sorting uses the release date." }
       - { label: "Release Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD", hint: "The Spotify release date (not the day you add it here). Used for sorting and the 'Latest episode' block." }
       - { label: "Season", name: "season", widget: "number", min: 1, step: 1, default: 2, hint: "Season 1 = published by Radio 4 Brainport. Season 2 = self-published (from episode 32)." }
-      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Title", name: "title", widget: "string", hint: "Pattern: Topic — Guest Name (no quotes, no Dr./Prof.), e.g. Teaching Robots Skills on Real Hardware — Jens Kober" }
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Cover Image", name: "cover", widget: "image" }
       - { label: "Spotify Link", name: "spotify", widget: "string", hint: "Paste the normal Spotify share link, e.g. https://open.spotify.com/episode/2eFjHhKXc52elOUTkoNFnY (it is converted to an embed automatically)" }
-      - { label: "YouTube Link", name: "youtube", widget: "string", required: false, hint: "Paste the YouTube embed video URL (no ifrmae)" }
+      - { label: "YouTube Link", name: "youtube", widget: "string", required: false, hint: "Paste the YouTube embed video URL (not the iframe code)" }
       - label: "Tags"
         name: "tags"
         widget: "list"
@@ -34,6 +34,3 @@ collections:
         fields:
           - { label: "Label", name: "label", widget: "string", hint: "e.g., Linkedin, etc" }
           - { label: "URL", name: "url", widget: "string" }
-
-    episodes:
-      output: true
