@@ -25,6 +25,19 @@ css: index-styles.css
 </section>
 
 <section class="favorites">
+  {% assign latest = site.episodes | sort: "date" | last %}
+  <div class="episode-heading">
+    <p class="line2">Latest episode</p>
+  </div>
+
+  <article class="episode-card favorite-card latest-card">
+    <a href="{{ latest.url }}">
+      <img src="{{ latest.cover }}" alt="{{ latest.title }}" class="episode-cover">
+      <h3>Episode {{ latest.episode_number }}{% if latest.season and latest.season > 1 %} · Season {{ latest.season }}{% endif %} · {{ latest.date | date: "%-d %b %Y" }}</h3>
+      <h2>{{ latest.title }}</h2>
+    </a>
+  </article>
+
   <div class="episode-heading">
     <p class="line2">Highlights</p>
   </div>
@@ -49,5 +62,5 @@ css: index-styles.css
 </section>
 
 <section class="radio-section">
-  <p>In collaboration with Radio 4 Brainport, the Expat Station!</p>
+  <p>In collaboration with Radio 4 Brainport</p>
 </section>
