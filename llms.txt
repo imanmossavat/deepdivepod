@@ -1,0 +1,19 @@
+---
+layout: null
+sitemap: false
+---
+# {{ site.title }}
+
+> {{ site.description }} A podcast hosted by Iman Mossavat. {{ site.tagline }}
+
+Each episode is an in-depth conversation with one or two guests: researchers, engineers, legal and ethics experts, founders, educators and artists. No prior AI knowledge is needed.
+
+- Season 1 (episodes 1–31) was published with Radio 4 Brainport.
+- Season 2 (episode 32 onward) is self-published: https://open.spotify.com/show/7ACFkWtj0jn5mI21dTxDbG
+- Website: {{ '/' | absolute_url }}
+- All episodes: {{ '/episodes/' | absolute_url }}
+- About and contact: {{ '/contact/' | absolute_url }}
+
+## Episodes
+{% assign eps = site.episodes | sort: "date" | reverse %}{% for e in eps %}
+- [Episode {{ e.episode_number }}: {{ e.title }}]({{ e.url | absolute_url }}) ({{ e.date | date: "%Y-%m-%d" }}): {{ e.description | strip_html | normalize_whitespace | truncate: 240 }}{% if e.tags %} Tags: {{ e.tags | join: ", " }}.{% endif %}{% endfor %}

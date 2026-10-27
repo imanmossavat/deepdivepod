@@ -7,6 +7,13 @@ url: "https://deepdivepod.eu"
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
+
+feed:
+  posts_limit: 100
+  collections:
+    episodes:
+      path: "/feed/episodes.xml"
 
 collections:
   episodes:
@@ -29,3 +36,9 @@ exclude:
   - template.html
   - test.html
   - vendor/
+
+defaults:
+  - scope:
+      path: "admin"
+    values:
+      sitemap: false

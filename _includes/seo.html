@@ -1,0 +1,84 @@
+{% comment %}
+  Search-engine and link-preview metadata: title, description, canonical URL,
+  Open Graph / Twitter cards, and schema.org JSON-LD (PodcastSeries on the home
+  page, PodcastEpisode on episode pages).
+{% endcomment %}
+{% assign is_episode = false %}
+{% if page.collection == "episodes" %}{% assign is_episode = true %}{% endif %}
+
+{% if page.url == "/" %}
+  {% assign seo_title = site.title | append: " — " | append: site.tagline %}
+{% elsif is_episode %}
+  {% assign seo_title = "Episode " | append: page.episode_number | append: ": " | append: page.title | append: " | " | append: site.title %}
+{% else %}
+  {% assign seo_title = page.title | append: " | " | append: site.title %}
+{% endif %}
+
+{% assign seo_description = page.description | default: site.description | strip_html | normalize_whitespace | truncate: 200 %}
+{% if is_episode and page.cover %}
+  {% assign seo_image = page.cover | absolute_url %}
+{% else %}
+  {% assign seo_image = '/assets/images/logo-2.png' | absolute_url %}
+{% endif %}
+{% assign canonical = page.url | absolute_url %}
+
+  <title>{{ seo_title }}</title>
+  <meta name="description" content="{{ seo_description | escape }}">
+  <link rel="canonical" href="{{ canonical }}">
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title }} episodes" href="{{ '/feed/episodes.xml' | absolute_url }}">
+
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:title" content="{{ seo_title | escape }}">
+  <meta property="og:description" content="{{ seo_description | escape }}">
+  <meta property="og:type" content="{% if is_episode %}article{% else %}website{% endif %}">
+  <meta property="og:url" content="{{ canonical }}">
+  <meta property="og:image" content="{{ seo_image }}">
+  <meta property="og:locale" content="en">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ seo_title | escape }}">
+  <meta name="twitter:description" content="{{ seo_description | escape }}">
+  <meta name="twitter:image" content="{{ seo_image }}">
+
+{% assign series_url = '/' | absolute_url %}
+{% if page.url == "/" %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "PodcastSeries",
+    "name": {{ site.title | jsonify }},
+    "url": {{ series_url | jsonify }},
+    "description": {{ site.description | jsonify }},
+    "image": {{ '/assets/images/logo-2.png' | absolute_url | jsonify }},
+    "inLanguage": "en",
+    "webFeed": {{ '/feed/episodes.xml' | absolute_url | jsonify }},
+    "author": { "@type": "Person", "name": "Iman Mossavat" },
+    "sameAs": [
+      "https://open.spotify.com/show/7ACFkWtj0jn5mI21dTxDbG",
+      "https://www.linkedin.com/company/deep-dives-with-iman/"
+    ]
+  }
+  </script>
+{% elsif is_episode %}
+  {% assign spotify_url = page.spotify | split: '?' | first | replace: '/embed/episode/', '/episode/' %}
+  {% assign guests = page.title | split: " — " | last | split: " & " %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "PodcastEpisode",
+    "name": {{ page.title | jsonify }},
+    "url": {{ canonical | jsonify }},
+    "episodeNumber": {{ page.episode_number }},
+    {% if page.date %}"datePublished": {{ page.date | date: "%Y-%m-%d" | jsonify }},{% endif %}
+    "description": {{ page.description | strip_html | normalize_whitespace | jsonify }},
+    "image": {{ seo_image | jsonify }},
+    "inLanguage": "en",
+    {% if page.tags %}"keywords": {{ page.tags | join: ", " | jsonify }},{% endif %}
+    "actor": [{% for g in guests %}{ "@type": "Person", "name": {{ g | strip | jsonify }} }{% unless forloop.last %}, {% endunless %}{% endfor %}],
+    "author": { "@type": "Person", "name": "Iman Mossavat" },
+    "partOfSeason": { "@type": "PodcastSeason", "seasonNumber": {{ page.season | default: 1 }} },
+    "partOfSeries": { "@type": "PodcastSeries", "name": {{ site.title | jsonify }}, "url": {{ series_url | jsonify }} },
+    "associatedMedia": { "@type": "MediaObject", "embedUrl": {{ spotify_url | replace: 'open.spotify.com/episode/', 'open.spotify.com/embed/episode/' | jsonify }}, "url": {{ spotify_url | jsonify }} },
+    "sameAs": [{{ spotify_url | jsonify }}]
+  }
+  </script>
+{% endif %}
