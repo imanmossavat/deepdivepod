@@ -1,0 +1,50 @@
+# One-line explanations for tags shared by several episodes, shown on /tags/.
+# Tags not listed here still appear on the page, under "More tags".
+Society: How AI affects people, institutions and everyday life.
+Technology: How AI systems are built, engineered and deployed.
+Science: Research questions and scientific ideas behind or around AI.
+Mathematics: The mathematical ideas that AI is built on, and AI as a tool for mathematics.
+Large Language Models: Systems like ChatGPT that generate text, what they can and cannot do, and how they are used.
+Generative AI: AI that creates new content such as text, images or data.
+Ethics: Questions of right and wrong in how AI is designed and used.
+Regulation: Laws and rules for AI, such as the EU AI Act and data protection.
+Law: Legal questions raised by AI.
+Accountability: Who is responsible when an AI system causes harm or makes a mistake.
+Bias and Fairness: How AI can treat groups of people unequally, and how to detect and reduce that.
+Transparency: Making clear how an AI system works and why it reaches a decision.
+Trust: When and why people can rely on AI systems and the information they produce.
+AI Safety: Preventing AI systems from causing harm, now and in the future.
+AI Literacy: Understanding AI well enough to use it wisely, at work and in daily life.
+Human Values: Making AI pursue goals that reflect what people actually care about.
+Human-AI Collaboration: People and AI working together, with humans staying in control.
+Future of Work: How AI changes jobs, skills and the workplace.
+Decision Making: How AI supports, automates or changes decisions, and the trade-offs involved.
+Reasoning: Whether and how AI can think logically, plan and explain its conclusions.
+Philosophy: Philosophical questions about knowledge, mind and meaning in AI.
+Psychology: How human minds work, compared with AI, and how AI affects behaviour.
+Cognition: How humans and machines perceive, learn and think.
+Neuroscience: What the brain can teach us about intelligence, and AI as a model of the brain.
+Uncertainty: How AI systems handle incomplete, noisy or unpredictable information.
+Bayesian Inference: Reasoning with probabilities, updating beliefs as new evidence arrives.
+Machine Learning: Systems that learn patterns from data instead of following fixed rules.
+Deep Learning: Neural networks with many layers, the technology behind most modern AI.
+Reinforcement Learning: Learning by trial and error from rewards and penalties.
+AI Agents: AI systems that act on their own to reach goals, sometimes several working together.
+Evaluation and Testing: How to check that an AI system works as claimed, including benchmarks and audits.
+Simulation: Using simulated worlds or simulated people to train or study AI, and where that breaks down.
+Robotics: AI in physical machines that sense and act in the real world.
+Neuromorphic Computing: Computer chips inspired by the brain, designed to use very little energy.
+Energy Efficiency: Reducing the energy and compute that AI needs.
+Edge AI: Running AI on local devices instead of in the cloud.
+Open Source: Openly shared software and models, and their role in AI.
+Startups: Founders and young companies turning AI research into products.
+Academia and Industry: How university research and companies work together, and where they clash.
+AI for Science: AI as a tool for scientific discovery.
+Biology: Living systems as a source of data, problems and inspiration for AI.
+Physics: Physics as a background for AI work, and AI applied to physical science.
+Healthcare: AI in medicine and patient care.
+Education: Teaching and learning, with and about AI.
+Software Engineering: Building and maintaining software, and how AI changes that work.
+Chatbots: Conversational AI systems and their effects on users.
+Design: How AI products and systems are designed for people.
+Europe: AI built, funded and governed in Europe.

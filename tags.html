@@ -1,0 +1,40 @@
+---
+layout: default
+title: Tags
+description: "Glossary of the topics covered in Deep Dives with Iman, from large language models and AI ethics to robotics and neuroscience, with links to every episode on each topic."
+css: tags-styles.css
+permalink: /tags/
+---
+
+{% assign all_tags = site.episodes | map: "tags" | join: "|" | split: "|" | uniq | sort_natural %}
+{% assign episodes_by_number = site.episodes | sort: "episode_number" %}
+
+<section class="tags-intro">
+    <p class="line1">Explore by</p>
+    <p class="line2">Topic</p>
+    <p class="tags-lead">Topics that come up across episodes, with a short explanation. Click a topic to see all its episodes.</p>
+</section>
+
+<section class="glossary">
+    {% for entry in site.data.tag_glossary %}
+    {% assign tag = entry[0] %}
+    {% if all_tags contains tag %}
+    <div class="glossary-item">
+        <a class="glossary-tag" href="{{ '/episodes' | relative_url }}?tag={{ tag | url_encode }}">{{ tag }}</a>
+        <p class="glossary-text">{{ entry[1] }}</p>
+        <p class="glossary-episodes">
+        {% for ep in episodes_by_number %}{% if ep.tags contains tag %}<a href="{{ ep.url | relative_url }}" title="{{ ep.title | escape }}">Ep {{ ep.episode_number }}</a> {% endif %}{% endfor %}
+        </p>
+    </div>
+    {% endif %}
+    {% endfor %}
+</section>
+
+<section class="more-tags">
+    <p class="more-heading">More tags</p>
+    <div class="tag-cloud">
+    {% for tag in all_tags %}{% unless site.data.tag_glossary[tag] %}
+        <a href="{{ '/episodes' | relative_url }}?tag={{ tag | url_encode }}">{{ tag }}</a>
+    {% endunless %}{% endfor %}
+    </div>
+</section>
