@@ -15,7 +15,7 @@ permalink: /episodes/
     <input 
         type="text" 
         id="search-bar" 
-        placeholder="Search titles and tags..."
+        placeholder="Search by guest, organisation, topic or title..."
     >
 
     <p class="tag-label">Suggested tags</p>
@@ -25,12 +25,13 @@ permalink: /episodes/
         <button class="tag-btn" data-tag="science">science</button>
         <button class="tag-btn" data-tag="mathematics">mathematics</button>
     </div>
+    <a class="all-tags-link" href="{{ '/tags/' | relative_url }}">Browse all topics &rarr;</a>
 </section>
 
 <div class="episodes-list" id="episodes-list">
     {% assign sorted_episodes = site.episodes | sort: "date" | reverse %}
     {% for episode in sorted_episodes %}
-        <article class="episode-card" data-title="{{ episode.title | downcase }}" data-tags="{{ episode.tags | join: ' ' | downcase }}">
+        <article class="episode-card" data-title="{{ episode.title | downcase }}" data-text="{{ episode.description | strip_html | normalize_whitespace | downcase | escape }} {{ episode.links | map: 'label' | join: ' ' | downcase | escape }}" data-tags="|{{ episode.tags | join: '|' | downcase }}|">
             <a href="{{ episode.url }}">
                 <img src="{{ episode.cover }}" alt="{{ episode.title }}" class="episode-cover">
                 <h3>Episode {{ episode.episode_number }}{% if episode.season and episode.season > 1 %} · Season {{ episode.season }}{% endif %}</h3>
@@ -57,6 +58,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let visibleCount = 6;
 
+  // Lowercase and drop accents so "zliobaite" finds "Žliobaitė" and "paassen" finds "Paaßen".
+  function normalize(text) {
+    return text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/ß/g, "ss").replace(/ı/g, "i");
+  }
+  episodes.forEach(ep => {
+    ep.dataset.search = normalize(ep.dataset.title + " " + ep.dataset.text + " " + ep.dataset.tags);
+  });
+
   function showInitialEpisodes() {
     episodes.forEach((ep, index) => {
       ep.style.display = index < visibleCount ? "block" : "none";
@@ -69,13 +78,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  function filterEpisodes(query) {
+  // exact = true matches whole tags only (tag links and buttons), so "art" doesn't match "startups"
+  function filterEpisodes(query, exact = false) {
     let matchCount = 0;
     episodes.forEach(ep => {
-      const title = ep.dataset.title;
       const tags = ep.dataset.tags;
 
-      if (title.includes(query) || tags.includes(query)) {
+      const match = exact ? tags.includes("|" + query + "|") : ep.dataset.search.includes(normalize(query));
+      if (match) {
         ep.style.display = "block";
         matchCount++;
       } else {
@@ -108,14 +118,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const tagParam = urlParams.get("tag");
   if (tagParam) {
     searchBar.value = tagParam;
-    filterEpisodes(tagParam.toLowerCase().trim());
+    filterEpisodes(tagParam.toLowerCase().trim(), true);
   }
 
   document.querySelectorAll(".tag-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       const tag = btn.dataset.tag.toLowerCase().trim();
       searchBar.value = tag;
-      filterEpisodes(tag);
+      filterEpisodes(tag, true);
       window.scrollTo({ top: document.getElementById("episodes-list").offsetTop - 120, behavior: "smooth" });
     });
   });

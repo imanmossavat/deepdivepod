@@ -234,3 +234,14 @@ body {
         font-size: 20px;
     }
 }
+.all-tags-link {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    margin-top: 4px;
+}
+
+.all-tags-link:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
