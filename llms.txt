@@ -10,6 +10,7 @@ Each episode is an in-depth conversation with one or two guests: researchers, en
 
 - Season 1 (episodes 1–31) was published with Radio 4 Brainport.
 - Season 2 (episode 32 onward) is self-published: https://open.spotify.com/show/7ACFkWtj0jn5mI21dTxDbG
+- Podcast RSS feed (Season 2 onward): {{ site.podcast_rss }}
 - Website: {{ '/' | absolute_url }}
 - All episodes: {{ '/episodes/' | absolute_url }}
 - About and contact: {{ '/contact/' | absolute_url }}

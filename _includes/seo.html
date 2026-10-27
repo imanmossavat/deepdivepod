@@ -26,6 +26,7 @@
   <meta name="description" content="{{ seo_description | escape }}">
   <link rel="canonical" href="{{ canonical }}">
   <link rel="alternate" type="application/atom+xml" title="{{ site.title }} episodes" href="{{ '/feed/episodes.xml' | absolute_url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }} podcast (Season 2 onward)" href="{{ site.podcast_rss }}">
 
   <meta property="og:site_name" content="{{ site.title }}">
   <meta property="og:title" content="{{ seo_title | escape }}">
@@ -50,7 +51,7 @@
     "description": {{ site.description | jsonify }},
     "image": {{ '/assets/images/logo-2.png' | absolute_url | jsonify }},
     "inLanguage": "en",
-    "webFeed": {{ '/feed/episodes.xml' | absolute_url | jsonify }},
+    "webFeed": {{ site.podcast_rss | jsonify }},
     "author": { "@type": "Person", "name": "Iman Mossavat" },
     "sameAs": [
       "https://open.spotify.com/show/7ACFkWtj0jn5mI21dTxDbG",
