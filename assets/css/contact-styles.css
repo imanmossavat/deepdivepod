@@ -3,17 +3,6 @@ body {
     background-attachment: fixed;
 }
 
-.section-heading {
-    max-width: 800px;
-    margin: 30px auto 0 auto;
-    padding: 0 20px;
-    font-size: 24px;
-    font-weight: 400;
-    color: #ffffff;
-    text-align: left;
-    text-shadow: 2px 2px 4px #0000001d;
-}
-
 .portrait {
     float: left;
     width: 130px;
@@ -95,12 +84,7 @@ body {
 }
 
 @media (max-width: 768px) {
-    .section-heading {
-        font-size: 20px;
-        padding: 0 30px;
-    }
-
-    .links-label.page-top {
+        .links-label.page-top {
         margin-top: 100px;
     }
 
