@@ -4,31 +4,31 @@ body {
 }
 
 .section-heading {
-    margin: 40px 0px 0px 0px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-weight: 300; 
-    font-size: 20px;
-}
-
-.section-heading.page-top {
-    margin-top: 110px;
-}
-
-.section-heading p {
-    color: #cccccc;
-    margin-bottom: 0;
-}
-
-.section-heading h1,
-.section-heading h2 {
-    margin-top: 0;
-    margin-bottom: 0;
-    font-size: 30px;
+    max-width: 800px;
+    margin: 30px auto 0 auto;
+    padding: 0 20px;
+    font-size: 24px;
+    font-weight: 400;
     color: #ffffff;
+    text-align: left;
     text-shadow: 2px 2px 4px #0000001d;
+}
+
+.portrait {
+    float: left;
+    width: 130px;
+    height: 130px;
+    margin: 6px 20px 10px 0;
+    border-radius: 100%;
+    border: 3px solid #ffffff;
+    box-shadow: 2px 2px 4px #0000003a;
+    object-fit: cover;
+}
+
+.intro-box::after {
+    content: "";
+    display: block;
+    clear: both;
 }
 
 .intro-box a {
@@ -42,6 +42,10 @@ body {
     color: rgba(255, 255, 255, 0.65);
     text-align: center;
     margin: 0 0 10px 0;
+}
+
+.links-label.page-top {
+    margin-top: 110px;
 }
 
 .links {
@@ -92,16 +96,18 @@ body {
 
 @media (max-width: 768px) {
     .section-heading {
-        font-size: 18px;
+        font-size: 20px;
+        padding: 0 30px;
     }
 
-    .section-heading.page-top {
+    .links-label.page-top {
         margin-top: 100px;
     }
 
-    .section-heading h1,
-    .section-heading h2 {
-        font-size: 24px;
+    .portrait {
+        width: 90px;
+        height: 90px;
+        margin-right: 14px;
     }
 
     .intro-box {
