@@ -35,17 +35,17 @@ body {
 
 .glossary-group {
     max-width: 1000px;
-    margin: 30px auto 10px auto;
+    margin: 50px auto 10px auto;
     padding: 0 20px;
     box-sizing: border-box;
 }
 
 .group-heading {
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: rgba(255, 255, 255, 0.65);
-    margin: 0 0 10px 0;
+    font-size: 26px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 14px 0;
+    text-shadow: 2px 2px 4px #0000001d;
 }
 
 .glossary {
@@ -148,6 +148,14 @@ body {
     .glossary {
         grid-template-columns: 1fr;
         gap: 14px;
+    }
+
+    .glossary-group {
+        margin-top: 36px;
+    }
+
+    .group-heading {
+        font-size: 21px;
     }
 
     .glossary-tag {
