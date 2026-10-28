@@ -3,8 +3,8 @@ body {
     background-attachment: fixed;
 }
 
-.host-section {
-    margin: 110px 0px 0px 0px;
+.section-heading {
+    margin: 40px 0px 0px 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,37 +13,25 @@ body {
     font-size: 20px;
 }
 
-.host-section img {
-    width: 150px;
-    height: 150px;
-    border-radius: 100%;
-    border: 4px solid #ffffff;
-    box-shadow: 2px 2px 4px #0000003a;
+.section-heading.page-top {
+    margin-top: 110px;
 }
 
-.host-section p {
+.section-heading p {
     color: #cccccc;
+    margin-bottom: 0;
 }
 
-.host-section h1 {
-    margin-top: -15px;
+.section-heading h1,
+.section-heading h2 {
+    margin-top: 0;
+    margin-bottom: 0;
     font-size: 30px;
     color: #ffffff;
     text-shadow: 2px 2px 4px #0000001d;
 }
 
-.host-bio {
-    max-width: 650px;
-    margin: -10px auto 30px auto;
-    padding: 0 20px;
-    font-weight: 300;
-    font-size: 17px;
-    line-height: 1.5;
-    text-align: center;
-    color: #dddddd;
-}
-
-.host-bio a {
+.intro-box a {
     color: #ffffff;
 }
 
@@ -103,22 +91,17 @@ body {
 }
 
 @media (max-width: 768px) {
-    .host-section {
-        margin-top: 100px;
+    .section-heading {
         font-size: 18px;
     }
 
-    .host-section img {
-        width: 120px;
-        height: 120px;
+    .section-heading.page-top {
+        margin-top: 100px;
     }
 
-    .host-section h1 {
+    .section-heading h1,
+    .section-heading h2 {
         font-size: 24px;
-    }
-
-    .host-bio {
-        font-size: 15px;
     }
 
     .intro-box {
