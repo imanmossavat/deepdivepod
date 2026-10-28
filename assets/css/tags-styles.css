@@ -33,14 +33,25 @@ body {
     color: #cccccc;
 }
 
+.glossary-group {
+    max-width: 1000px;
+    margin: 30px auto 10px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.group-heading {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.65);
+    margin: 0 0 10px 0;
+}
+
 .glossary {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 18px 40px;
-    max-width: 1000px;
-    margin: 30px auto;
-    padding: 0 20px;
-    box-sizing: border-box;
 }
 
 .glossary-item {

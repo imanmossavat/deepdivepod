@@ -15,9 +15,14 @@ permalink: /tags/
     <p class="tags-lead">Topics that come up across episodes, with a short explanation. Click a topic to see all its episodes.</p>
 </section>
 
-<section class="glossary">
-    {% for entry in site.data.tag_glossary %}
+{% assign glossary_names = "|" %}
+{% for group in site.data.tag_glossary %}
+<section class="glossary-group">
+    <p class="group-heading">{{ group.group }}</p>
+    <div class="glossary">
+    {% for entry in group.tags %}
     {% assign tag = entry[0] %}
+    {% assign glossary_names = glossary_names | append: tag | append: "|" %}
     {% if all_tags contains tag %}
     <div class="glossary-item">
         <a class="glossary-tag" href="{{ '/episodes' | relative_url }}?tag={{ tag | url_encode }}">{{ tag }}</a>
@@ -28,12 +33,14 @@ permalink: /tags/
     </div>
     {% endif %}
     {% endfor %}
+    </div>
 </section>
+{% endfor %}
 
 <section class="more-tags">
     <p class="more-heading">More tags</p>
     <div class="tag-cloud">
-    {% for tag in all_tags %}{% unless site.data.tag_glossary[tag] %}
+    {% for tag in all_tags %}{% assign key = "|" | append: tag | append: "|" %}{% unless glossary_names contains key %}
         <a href="{{ '/episodes' | relative_url }}?tag={{ tag | url_encode }}">{{ tag }}</a>
     {% endunless %}{% endfor %}
     </div>
