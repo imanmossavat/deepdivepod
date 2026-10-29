@@ -22,3 +22,5 @@ Gemfile.lock
 # Node
 node_modules/
 PUBLISHING.md
+.vscode/settings.json
+.gitignore
