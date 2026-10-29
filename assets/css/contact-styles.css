@@ -155,3 +155,30 @@ body {
         padding: 12px 15px;
     }
 }
+
+
+
+.podcast-info-box {
+    max-width: 800px;
+    margin: 10px auto 25px auto;
+    padding: 15px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    font-style: italic;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.podcast-info-box p {
+    margin: 0;
+}
+
+.podcast-info-box a {
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .podcast-info-box {
+        margin: 10px 30px 20px 30px;
+        padding: 12px 15px;
+    }
+}
