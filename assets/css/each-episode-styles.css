@@ -64,6 +64,11 @@ article p {
     line-height: 1.6;
 }
 
+article p a {
+    color: inherit;
+    text-decoration: underline;
+}
+
 .links-row {
     display: flex;
     gap: 20px;
