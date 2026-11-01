@@ -22,7 +22,14 @@ css: each-episode-styles.css
   {% endif %}
 
   <iframe src="{{ spotify_embed }}" width="100%" height="152" frameborder="0" allow="encrypted-media"></iframe>
-  <p>{{ page.description }}</p>
+  {% capture paragraph_break %}
+
+{% endcapture %}
+  <div class="episode-description">
+    {% assign description_paragraphs = page.description | strip | split: paragraph_break %}
+    {% for paragraph in description_paragraphs %}{% assign paragraph = paragraph | strip %}{% if paragraph != "" %}<p>{{ paragraph }}</p>
+    {% endif %}{% endfor %}
+  </div>
 
   {% assign season = page.season | default: 1 %}
   {% if season == 1 %}
